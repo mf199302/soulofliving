@@ -30,6 +30,154 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    /* Portfolio layout system — matching visual footprints, readable cards, responsive spacing */
+    #brand-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 2.5vw, 34px);
+      align-items: stretch;
+    }
+    #brand-grid > .brand-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    #brand-grid > .brand-card .brand-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 100%;
+      height: clamp(230px, 25vw, 320px);
+      min-height: 0;
+      isolation: isolate;
+    }
+    #brand-grid .brand-visual .visual-index,
+    #brand-grid .brand-visual .visual-caption { z-index: 2; }
+    #brand-grid .brand-logo-container {
+      position: relative;
+      z-index: 1;
+      width: min(66%, 280px);
+      height: 142px;
+      min-height: 142px;
+      margin: auto;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+      transform: none;
+    }
+    #brand-grid .brand-logo-container > img,
+    #brand-grid .brand-logo-container > .latin-love-logo {
+      display: block;
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transform: none;
+      margin: 0;
+      border-radius: 0;
+    }
+    /* Explicitly reset legacy Latin Love positioning from css/style.css. */
+    #brand-grid .dance-visual > .latin-logo-frame.brand-logo-container {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      left: auto !important;
+      inset: auto !important;
+      transform: none !important;
+      margin: auto !important;
+      width: min(66%, 280px) !important;
+      height: 142px !important;
+      padding: 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    #brand-grid .dance-visual > .latin-logo-frame > img.latin-love-logo {
+      position: static !important;
+      inset: auto !important;
+      transform: none !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      /* The supplied PNG has a near-black rectangular background. Screen blending removes that rectangle while retaining the light logo artwork. */
+      mix-blend-mode: screen !important;
+    }
+    /* Apply the same seamless treatment to the small Latin Love shortcut logo. */
+    .venture-shortcut-latin .shortcut-mark img {
+      mix-blend-mode: screen !important;
+    }
+    #brand-grid .latin-logo-fallback { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; }
+    #brand-grid .latin-logo-frame:has(img:not([src])) .latin-logo-fallback { display: flex; }
+    #brand-grid .brand-text-logo { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 100%; }
+    #brand-grid .bnb-wordmark { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(74px, 8vw, 100px); font-weight: 500; line-height: .82; letter-spacing: -.07em; color: #f6f0e8; }
+    #brand-grid .bnb-wordmark span { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: .34em; font-weight: 500; margin-top: 14px; }
+    #brand-grid .future-logo-container .future-symbol { position: relative; inset: auto; transform: none; max-width: 100%; }
+    /* Blend the black background baked into future.png into the dark design. */
+    .venture-shortcut .shortcut-future-image-mark {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent !important;
+    }
+    .venture-shortcut .shortcut-future-image-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+    #brand-grid .future-logo-container img {
+      mix-blend-mode: screen;
+    }
+    #brand-grid .brand-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: clamp(24px, 3vw, 38px);
+    }
+    #brand-grid .brand-meta { min-height: 32px; }
+    #brand-grid .brand-info h3 { margin-top: 18px; margin-bottom: 16px; line-height: 1.1; }
+    #brand-grid .brand-info > p { margin-top: 0; margin-bottom: 24px; line-height: 1.7; max-width: 64ch; }
+    #brand-grid .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; margin-bottom: 24px; }
+    #brand-grid .brand-footer { margin-top: 0; padding-top: 20px; }
+    #brand-grid .brand-details { margin-top: 18px; }
+    #brand-grid .design-visual { background: linear-gradient(145deg, #222321, #343633); }
+    @media (max-width: 760px) {
+      #brand-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+      #brand-grid > .brand-card .brand-visual { height: 235px; }
+      #brand-grid .brand-logo-container { width: min(66%, 250px); height: 124px; min-height: 124px; }
+      #brand-grid .dance-visual > .latin-logo-frame.brand-logo-container { width: min(66%, 250px) !important; height: 124px !important; }
+      #brand-grid .brand-info { padding: 24px; }
+      #brand-grid .brand-meta { min-height: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { #brand-grid .brand-logo-container { transition: none; } }
+  </style>
+
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -133,7 +281,7 @@
             <span class="shortcut-mark shortcut-text-mark">
               <img src="assets/images/INHOUSE-LOGO.png" loading="lazy">
             </span>
-            <span class="shortcut-name">INHOUSE DESIGN</span>
+            <span class="shortcut-name">CONTRACTING &amp; DESIGN</span>
           </a>
 
           <a class="venture-shortcut" href="#brand-bnb" aria-label="Go to The BnB Collective">
@@ -143,14 +291,14 @@
 
           <a class="venture-shortcut venture-shortcut-latin" href="#brand-latin-love" aria-label="Go to Latin Love Cairo">
             <span class="shortcut-mark">
-              <img src="https://graph.facebook.com/830342133649897/picture?type=large" alt="" loading="lazy">
+              <img src="assets/images/Latin Love Logo White.png" alt="" loading="lazy">
               <span class="shortcut-fallback" aria-hidden="true">LL</span>
             </span>
             <span class="shortcut-name">LATIN LOVE</span>
           </a>              
 
           <a class="venture-shortcut" href="#brand-future" aria-label="Go to Future Ventures">
-            <span class="shortcut-mark shortcut-future-mark">S<span>/</span>L</span>
+            <span class="shortcut-mark shortcut-future-image-mark"><img src="assets/images/future.png" alt="" loading="lazy"></span>
             <span class="shortcut-name">FUTURE VENTURES</span>
           </a>
           
@@ -171,10 +319,10 @@
     <!-- =====================================
          OUR PORTFOLIO
     ====================================== -->
+
     <section class="brands section-wrap" id="brands" aria-labelledby="brands-title">
 
       <div class="section-top">
-
         <div>
           <div class="section-kicker reveal">
             <span>01</span> / OUR PORTFOLIO
@@ -188,28 +336,24 @@
         <p class="section-intro reveal">
           Distinct disciplines, connected by a shared point of view. Explore the brands shaping the Soul of Living universe.
         </p>
-
       </div>
 
-
       <div class="brand-grid" id="brand-grid">
-
 
         <!-- CAIRONITURE -->
         <article id="brand-caironiture" class="brand-card brand-caironiture reveal" aria-labelledby="brand-caironiture-title">
 
           <div class="brand-visual caironiture-visual">
+            <div class="visual-index">FURNITURE</div>
 
-            <div class="visual-index">02 — FURNITURE</div>
-
-            <img class="caironiture-logo" src="assets/logos/caironiture.png" alt="Caironiture furniture brand logo" loading="lazy" width="1157" height="268">
+            <div class="brand-logo-container">
+              <img src="assets/logos/caironiture.png" alt="Caironiture furniture brand logo" loading="lazy">
+            </div>
 
             <div class="visual-caption">MADE FOR THE WAY YOU LIVE</div>
-
           </div>
 
           <div class="brand-info">
-
             <div class="brand-meta">
               <span>FURNITURE / HOME / DESIGN</span>
               <span>SOUL OF LIVING VENTURE</span>
@@ -218,7 +362,7 @@
             <h3 id="brand-caironiture-title">CAIRONITURE</h3>
 
             <p>
-              Modern, functional furniture made in Egypt. Caironiture brings together thoughtful design, quality materials, and timeless style to help make every space feel like home.
+              Made in Egypt for modern living, Caironiture combines functional design, quality materials and timeless style. Thoughtfully crafted furniture helps every space feel personal, comfortable and distinctly like home.
             </p>
 
             <div class="tag-list">
@@ -232,36 +376,34 @@
               <a class="arrow-link" href="https://www.caironiture.com/" target="_blank" rel="noopener">
                 Visit Caironiture <span>↗</span>
               </a>
-              <span class="brand-number">02 / 05</span>
+              <span class="brand-number">01 / 05</span>
             </div>
-
           </div>
         </article>
 
-
-        <!-- CONTRACTING & DESIGN -->
+        <!-- INHOUSE DESIGN -->
         <article id="brand-design" class="brand-card brand-design reveal" aria-labelledby="brand-design-title">
 
-          <div class="brand-info">
+          <div class="brand-visual design-visual">
+            <div class="visual-index">DESIGN &amp; BUILD</div>
+            <div class="brand-logo-container">
+              <img src="assets/images/INHOUSE-LOGO.png" alt="InHouse Design logo" loading="lazy">
+            </div>
+            <div class="visual-caption">FROM CONCEPT TO COMPLETION</div>
+          </div>
 
+          <div class="brand-info">
             <div class="brand-meta">
               <span>CONTRACTING / INTERIOR DESIGN / TURNKEY FIT-OUT</span>
               <span>SOUL OF LIVING GROUP</span>
             </div>
 
-            <img
-              class="brand-logo"
-              src="assets/images/INHOUSE-LOGO.png"
-              alt="Inhouse Design logo"
-              loading="lazy"
-            >
-
             <h3 id="brand-design-title">
-              <strong>IN</strong>HOUSE <strong><em>DE</em></strong>SIGN
+              <strong>CONTRACTING</strong> &amp; <strong>DESIGN</strong>
             </h3>
 
             <p>
-              An integrated contracting and interior design business that takes apartments from concept to completion. We combine considered design with on-the-ground execution, specialising in turnkey apartment transformations — including converting residential apartments into hotel-grade stays.
+              From concept to completion, InHouse Design combines interior design, contracting and hands-on execution. We specialise in turnkey apartment renovations and transforming residential spaces into thoughtfully designed, hotel-grade stays.
             </p>
 
             <div class="tag-list">
@@ -277,31 +419,25 @@
               <a class="arrow-link" href="#contact">
                 Discuss a project <span>↗</span>
               </a>
-              <span class="brand-number">03 / 05</span>
+              <span class="brand-number">02 / 05</span>
             </div>
-
           </div>
         </article>
-
 
         <!-- THE BNB COLLECTIVE -->
         <article id="brand-bnb" class="brand-card brand-stay reveal" aria-labelledby="brand-stay-title">
 
           <div class="brand-visual stay-visual">
+            <div class="visual-index">HOSPITALITY</div>
 
-            <div class="visual-index">04 — HOSPITALITY</div>
-
-            <div class="stay-frame">
-              <div class="stay-window"></div>
-              <div class="stay-light"></div>
+            <div class="brand-logo-container brand-wordmark-container">
+              <img src="assets/images/STAY-LOGO.png" alt="The BnB Collective logo" loading="lazy">
             </div>
 
             <div class="visual-caption">THE WELCOME IS IN THE DETAILS</div>
-
           </div>
 
           <div class="brand-info">
-
             <div class="brand-meta">
               <span>HOSPITALITY / SHORT-TERM RENTALS / PROPERTY MANAGEMENT</span>
               <span>SOUL OF LIVING GROUP</span>
@@ -310,7 +446,7 @@
             <h3 id="brand-stay-title">THE BNB <em>COLLECTIVE</em></h3>
 
             <p>
-              A great stay is more than a place to sleep. It is a warm welcome after a long journey, a thoughtful response when help is needed, and the little details that make a new city feel familiar. The BnB Collective brings that spirit to short-term rental management, combining attentive guest communication, considered arrivals, local recommendations and day-to-day property care. Our aim is simple: help every guest feel comfortable, connected and genuinely at home.
+              The BnB Collective makes hospitality feel personal. Through attentive guest communication, seamless arrivals, local guidance and thoughtful property care, we create welcoming short-term stays that help guests feel comfortable and at home.
             </p>
 
             <div class="tag-list">
@@ -326,32 +462,28 @@
               <a class="arrow-link" href="#contact">
                 Explore The BnB Collective <span>↗</span>
               </a>
-              <span class="brand-number">04 / 05</span>
+              <span class="brand-number">03 / 05</span>
             </div>
-
           </div>
         </article>
 
-                        <!-- LATIN LOVE -->
+        <!-- LATIN LOVE -->
         <article id="brand-latin-love" class="brand-card brand-dance reveal" aria-labelledby="brand-latin-love-title">
 
           <div class="brand-visual dance-visual">
-
-            <div class="visual-index">01 — MOVEMENT</div>
+            <div class="visual-index">MOVEMENT</div>
 
             <div class="dance-rings"></div>
 
-            <div class="latin-logo-frame">
-              <img class="latin-love-logo" src="https://graph.facebook.com/830342133649897/picture?type=large" alt="Latin Love Studios logo" loading="lazy">
+            <div class="brand-logo-container latin-logo-frame">
+              <img class="latin-love-logo" src="assets/images/Latin Love Logo White.png" alt="Latin Love Studios logo" loading="lazy">
               <span class="latin-logo-fallback" aria-hidden="true">LATIN<br>LOVE</span>
             </div>
 
             <div class="visual-caption">FIND YOUR RHYTHM</div>
-
           </div>
 
           <div class="brand-info">
-
             <div class="brand-meta">
               <span>DANCE / MOVEMENT / COMMUNITY</span>
               <span>CAIRO · EST. 2014</span>
@@ -360,7 +492,7 @@
             <h3 id="brand-latin-love-title">LATIN LOVE <em>CAIRO</em></h3>
 
             <p>
-              More than a dance school, Latin Love is a community built around music, movement, and human connection. Since 2014, it has brought people together through Latin dance, professional instruction, social experiences, and unforgettable moments on the dance floor.
+              Since 2014, Latin Love has brought people together through music, movement and connection. More than a dance school, it is a welcoming community offering expert instruction, social experiences and memorable moments on the dance floor.
             </p>
 
             <div class="tag-list">
@@ -375,7 +507,7 @@
               <a class="arrow-link" href="https://www.instagram.com/latinlovecairo/" target="_blank" rel="noopener">
                 Visit Latin Love <span>↗</span>
               </a>
-              <span class="brand-number">01 / 05</span>
+              <span class="brand-number">04 / 05</span>
             </div>
 
             <details class="brand-details">
@@ -389,16 +521,13 @@
                 <p class="fine-print">Class schedules, prices and social events may change. Contact the studio directly for current details.</p>
               </div>
             </details>
-
           </div>
         </article>
-
 
         <!-- FUTURE VENTURES -->
         <article id="brand-future" class="brand-card brand-future reveal" aria-labelledby="brand-future-title">
 
           <div class="brand-visual future-visual">
-
             <div class="visual-index">05 — WHAT'S NEXT</div>
 
             <div class="future-symbol">
@@ -409,11 +538,9 @@
             </div>
 
             <div class="visual-caption">ALWAYS IN THE MAKING</div>
-
           </div>
 
           <div class="brand-info">
-
             <div class="brand-meta">
               <span>INNOVATION / FUTURE PROJECTS</span>
               <span>IN DEVELOPMENT</span>
@@ -437,11 +564,8 @@
               </a>
               <span class="brand-number">05 / 05</span>
             </div>
-
           </div>
         </article>
-
-
 
       </div>
     </section>
