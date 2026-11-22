@@ -492,3 +492,23 @@ body{font-size:15px}
 .contact-email:hover {
   opacity: 0.65;
 }
+
+#brand-design-title strong {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+#brand-design-title strong em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+.brand-logo {
+  display: block;
+  width: 180px;
+  height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: 20px auto;
+}
