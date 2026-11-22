@@ -11,7 +11,7 @@ const siteContent = {
   },
   placeholders: {
     interiorDesign: "[DESIGN STUDIO]",
-    propertyManagement: "[STAY COLLECTIVE]",
+    propertyManagement: "The BnB Collective",
     generalEmail: "hello@soulofliving.com"
   },
   ventures: {
@@ -53,6 +53,13 @@ const latinLogo = document.querySelector(".latin-love-logo");
 if (latinLogo) {
   latinLogo.addEventListener("error", () => {
     latinLogo.closest(".latin-logo-frame")?.classList.add("logo-load-failed");
+  }, { once: true });
+}
+
+const latinShortcutLogo = document.querySelector(".venture-shortcut-latin .shortcut-mark img");
+if (latinShortcutLogo) {
+  latinShortcutLogo.addEventListener("error", () => {
+    latinShortcutLogo.closest(".shortcut-mark")?.classList.add("logo-load-failed");
   }, { once: true });
 }
 

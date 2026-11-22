@@ -68,3 +68,145 @@ body{font-size:15px}
   .brand-future .brand-info{display:block;padding:23px 21px}
   .caironiture-logo{width:88%;max-height:100px}
 }
+
+
+/* Contracting & interior design — supplied apartment reference image. */
+.design-visual{background:linear-gradient(135deg,#17171a,#0b0b0d)}
+.design-reference-image{position:absolute;inset:0;display:block;width:100%;height:100%;box-sizing:border-box;padding:12px 14px 18px;object-fit:contain;object-position:center center;background:#0b0b0d;filter:saturate(.86) contrast(1.02);transition:filter .45s ease}
+.brand-design:hover .design-reference-image{filter:saturate(.96) contrast(1.04)}
+.design-visual::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,5,5,.12),transparent 22%,transparent 78%,rgba(5,5,5,.20));pointer-events:none}
+
+
+/* Opening composition: Hero and company story sit together beneath navigation. */
+.opening-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+  align-items:stretch;
+  background:#050505;
+}
+.opening-grid > .hero,
+.opening-grid > .about{
+  min-width:0;
+  min-height:760px;
+  height:auto;
+  max-height:none;
+}
+.opening-grid > .hero{
+  padding:138px clamp(34px,5.4vw,84px) 74px;
+  align-items:center;
+  background:radial-gradient(ellipse at 76% 48%,rgba(62,30,104,.12),transparent 40%),#050505;
+}
+.opening-grid .hero-content{width:100%;max-width:100%;}
+.opening-grid .hero h1{font-size:clamp(60px,7.2vw,108px);margin:32px 0 23px;}
+.opening-grid .hero-title-row{gap:clamp(16px,2.1vw,34px);}
+.opening-grid .hero-thought{max-width:155px;padding-left:15px;}
+.opening-grid .hero-thought strong{font-size:16px;}
+.opening-grid .hero-thought p{font-size:9px;}
+.opening-grid .hero-copy{font-size:clamp(14px,1.25vw,17px);}
+.opening-grid .hero-sub{font-size:11px;}
+.opening-grid > .about{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:116px clamp(32px,4.2vw,66px) 72px;
+  background:#08080b;
+}
+.opening-grid .about .section-kicker{margin-bottom:30px;}
+.opening-grid .about-layout{display:block;}
+.opening-grid .about h2{font-size:clamp(34px,3.15vw,47px);line-height:1.13;}
+.opening-grid .orbit-mark{margin:21px 0 -8px;transform:scale(.58);transform-origin:left top;height:90px;}
+.opening-grid .about-copy{max-width:560px;font-size:12px;line-height:1.75;}
+.opening-grid .about-copy .lead{font-size:15px;line-height:1.65;}
+.opening-grid .about-copy p{margin-bottom:10px;}
+.opening-grid .signature{font-size:22px;margin-top:17px!important;}
+.opening-grid .about-rule{margin-top:32px;gap:12px;font-size:7px;}
+
+/* Venture marks are compact, clickable shortcuts within the opening title block. */
+.venture-shortcuts{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:7px;
+  width:100%;
+  max-width:760px;
+  margin:25px 0 0;
+}
+.venture-shortcut{
+  min-width:0;
+  min-height:76px;
+  padding:9px 5px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.018);
+  transition:border-color .3s,background .3s,box-shadow .3s,transform .3s;
+}
+.venture-shortcut:hover,.venture-shortcut:focus-visible{
+  border-color:rgba(183,138,255,.62);
+  background:rgba(139,92,246,.075);
+  box-shadow:0 0 20px rgba(139,92,246,.12);
+  transform:translateY(-2px);
+  outline:none;
+}
+.shortcut-mark{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  color:#eee5ff;
+}
+.shortcut-mark img{display:block;max-width:88%;max-height:28px;width:auto;height:auto;object-fit:contain;}
+.venture-shortcut-latin .shortcut-mark img{width:29px;height:29px;border-radius:50%;object-fit:cover;}
+.shortcut-fallback{display:none;align-items:center;justify-content:center;position:absolute;inset:0;font:600 17px var(--display);color:#e7d6ff;text-shadow:0 0 12px rgba(168,85,247,.6);}
+.venture-shortcut-latin .shortcut-mark.logo-load-failed img{display:none;}
+.venture-shortcut-latin .shortcut-mark.logo-load-failed .shortcut-fallback{display:flex;}
+.shortcut-text-mark{font:500 22px var(--display);letter-spacing:-.08em;text-shadow:0 0 15px rgba(139,92,246,.24);}
+.shortcut-text-mark span{color:#bd91ff;font-family:var(--serif);}
+.shortcut-bnb-mark{font:italic 26px var(--serif);color:#d6c2f5;text-shadow:0 0 14px rgba(139,92,246,.32);}
+.shortcut-future-mark{font:500 21px var(--display);letter-spacing:.08em;color:#e9e0f4;}
+.shortcut-future-mark span{color:#b78aff;}
+.shortcut-name{display:block;max-width:100%;font-size:7px;line-height:1.35;letter-spacing:.10em;color:#aaa4b2;}
+.venture-shortcut:hover .shortcut-name,.venture-shortcut:focus-visible .shortcut-name{color:#f1e8ff;}
+.brand-card[id]{scroll-margin-top:105px;}
+
+@media(max-width:1050px){
+  .opening-grid{grid-template-columns:1fr;}
+  .opening-grid > .hero{min-height:660px;padding:125px 8% 65px;}
+  .opening-grid > .about{min-height:0;padding:78px 8% 72px;}
+  .opening-grid .about-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:7%;align-items:center;}
+  .opening-grid .about h2{font-size:clamp(38px,5vw,58px);}
+  .opening-grid .orbit-mark{margin-top:25px;}
+  .opening-grid .about-copy{font-size:13px;}
+  .opening-grid .about-copy .lead{font-size:16px;}
+  .opening-grid .about-rule{margin-top:42px;}
+  .opening-grid .hero h1{font-size:clamp(76px,10vw,130px);}
+  .opening-grid .hero-thought{max-width:190px;}
+  .opening-grid .hero-thought strong{font-size:19px;}
+  .opening-grid .hero-thought p{font-size:10px;}
+  .venture-shortcuts{max-width:720px;}
+}
+@media(max-width:680px){
+  .opening-grid > .hero{min-height:0;height:auto;padding:112px 7% 60px;}
+  .opening-grid > .about{padding:66px 7% 58px;}
+  .opening-grid .hero-title-row{display:block;}
+  .opening-grid .hero h1{font-size:clamp(68px,17vw,105px);margin:35px 0 24px;}
+  .opening-grid .hero-thought{max-width:260px;margin:0 0 22px;padding:5px 0 5px 15px;}
+  .opening-grid .hero-thought strong{font-size:15px;}
+  .opening-grid .about-layout{display:block;}
+  .opening-grid .about h2{font-size:clamp(38px,11vw,58px);}
+  .opening-grid .orbit-mark{margin:30px 0 -8px;}
+  .opening-grid .about-copy{font-size:13px;}
+  .opening-grid .about-copy .lead{font-size:16px;}
+  .opening-grid .about-rule{margin-top:30px;}
+  .venture-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:23px;}
+  .venture-shortcut{min-height:72px;padding:8px 4px;}
+  .shortcut-name{font-size:6.8px;}
+}
+@media(max-width:390px){
+  .venture-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
