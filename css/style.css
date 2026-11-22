@@ -210,3 +210,266 @@ body{font-size:15px}
 @media(max-width:390px){
   .venture-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));}
 }
+
+
+/* =========================================
+   ABOUT — EDITORIAL PORTFOLIO STYLE
+========================================= */
+
+.about {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 55px;
+  align-items: stretch;
+}
+
+.about-card {
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.025);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.about-card-visual,
+.about-small-visual {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+}
+
+.about-card-visual {
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at center, rgba(192,155,105,.16), transparent 65%),
+    linear-gradient(145deg,#171717,#090909);
+}
+
+.about-orbit {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-orbit .orbit {
+  position: absolute;
+  border: 1px solid rgba(201,170,125,.35);
+  border-radius: 50%;
+}
+
+.orbit-a {
+  width: 100%;
+  height: 100%;
+}
+
+.orbit-b {
+  width: 75%;
+  height: 75%;
+  border-style: dashed !important;
+  animation: aboutRotate 35s linear infinite;
+}
+
+.orbit-c {
+  width: 48%;
+  height: 48%;
+  border-color: rgba(255,255,255,.2) !important;
+}
+
+.orbit-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d0b18a;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 25px;
+  letter-spacing: 5px;
+  line-height: 1.1;
+}
+
+.orbit-center strong {
+  font-family: 'Inter',sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 400;
+  margin: 7px 0;
+}
+
+.about-card-info {
+  padding: 30px;
+}
+
+.about-card-info h3 {
+  font-family: 'Space Grotesk',sans-serif;
+  font-size: clamp(23px,2.5vw,36px);
+  line-height: 1.15;
+  margin: 20px 0 16px;
+  font-weight: 500;
+}
+
+.about-card-info h3 em {
+  font-family: 'Cormorant Garamond',serif;
+  font-weight: 400;
+}
+
+.about-card-info p {
+  color: rgba(255,255,255,.65);
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.about-side-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-small-visual {
+  min-height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-visual-connection {
+  background:
+    radial-gradient(circle at center,rgba(183,145,103,.19),transparent 55%),
+    #111;
+}
+
+.connection-symbol {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.connection-symbol span {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(201,170,125,.65);
+  border-radius: 50%;
+  position: relative;
+}
+
+.connection-symbol span:nth-child(2) {
+  transform: translateY(-17px);
+}
+
+.about-visual-ecosystem {
+  background:
+    radial-gradient(circle at center,rgba(183,145,103,.13),transparent 60%),
+    #111;
+}
+
+.ecosystem-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 260px;
+}
+
+.ecosystem-symbol span {
+  width: 55px;
+  height: 55px;
+  border: 1px solid rgba(201,170,125,.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d0b18a;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.about-card .visual-index,
+.about-card .visual-caption {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.55);
+}
+
+.about-card .visual-index {
+  top: 22px;
+}
+
+.about-card .visual-caption {
+  bottom: 22px;
+  text-align: center;
+}
+
+.about-rule {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 55px;
+  color: rgba(255,255,255,.4);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.about-rule span:first-child,
+.about-rule span:last-child {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.13);
+}
+
+@keyframes aboutRotate {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-side-grid {
+    grid-template-rows: auto;
+  }
+
+  .about-card-visual {
+    min-height: 300px;
+  }
+
+  .about-small-visual {
+    min-height: 165px;
+  }
+
+  .about {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card-info {
+    padding: 23px;
+  }
+
+  .about-orbit {
+    width: 210px;
+    height: 210px;
+  }
+
+  .about-card .visual-index,
+  .about-card .visual-caption {
+    left: 16px;
+    right: 16px;
+  }
+}
