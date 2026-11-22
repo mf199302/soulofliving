@@ -15,18 +15,56 @@
 @media(max-width:680px){html{scroll-padding-top:75px}.site-header{height:70px}.wordmark{font-size:13px}.menu-toggle{display:flex;width:38px;height:38px;border:1px solid var(--line);background:#0b0a0e;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}.menu-toggle span{width:15px;height:1px;background:#eee;transition:transform .25s}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3px) rotate(-45deg)}.primary-nav{position:absolute;top:69px;left:0;right:0;display:flex;flex-direction:column;gap:0;padding:0 7%;background:rgba(7,7,10,.97);backdrop-filter:blur(16px);max-height:0;overflow:hidden;transition:max-height .35s,padding .35s;border-bottom:1px solid transparent}.primary-nav.open{max-height:300px;padding-top:15px;padding-bottom:20px;border-color:var(--line)}.primary-nav a{padding:13px 0}.primary-nav a:after{display:none}.hero{min-height:740px;height:94svh;padding:100px 7% 80px}.hero-title-row{display:block}.hero h1{font-size:clamp(68px,17vw,105px);margin:38px 0 25px}.hero-thought{max-width:260px;margin:0 0 23px;padding:5px 0 5px 15px}.hero-thought strong{font-size:15px}.wordmark-image{width:145px}.hero-copy{font-size:14px}.hero-sub{font-size:9px;max-width:270px}.hero-actions{align-items:flex-start;flex-direction:column;gap:22px;margin-top:32px}.orb-one{width:360px;height:360px;right:-30%;top:24%}.section-wrap{padding:95px 7%}.section-kicker{margin-bottom:35px}.about-layout,.contact-layout{grid-template-columns:1fr;gap:45px}.about h2,.contact h2{font-size:clamp(38px,11vw,58px)}.orbit-mark{margin:35px auto 0;transform:scale(.8);transform-origin:left top;height:120px}.about-rule{margin-top:35px}.brands{padding-top:100px;padding-bottom:100px}.section-top{display:block;margin-bottom:42px}.section-intro{margin:25px 0 0;max-width:360px}.brand-grid{grid-template-columns:1fr;gap:18px}.brand-visual{height:230px}.brand-info{padding:23px 21px}.brand-info h3{font-size:31px}.brand-info>p{min-height:0}.brand-meta{font-size:6.5px}.manifesto{padding:105px 8%}.manifesto h2{font-size:clamp(46px,12vw,70px)}.contact{padding-top:100px;padding-bottom:105px}.contact-heading>p{margin:22px 0 30px}.site-footer{padding:35px 7% 22px}.footer-top{align-items:flex-start;flex-direction:column;gap:15px;padding-bottom:25px}.footer-bottom{align-items:flex-start;flex-direction:column;gap:16px}.footer-bottom div{flex-wrap:wrap;gap:15px}.desktop-only{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
-/* Caironiture venture artwork — CSS illustration, no external stock image required. */
-.caironiture-visual{background:radial-gradient(ellipse at 50% 70%,rgba(109,66,155,.19),transparent 55%),linear-gradient(145deg,#141018,#09090d)}
-.furniture-scene{position:absolute;left:50%;top:52%;width:330px;height:190px;transform:translate(-50%,-50%)}
-.furniture-art{position:absolute;right:25px;top:2px;width:96px;height:86px;border:1px solid rgba(201,172,237,.35);background:linear-gradient(135deg,rgba(147,103,193,.12),rgba(255,255,255,.015));box-shadow:0 0 35px rgba(139,92,246,.08)}
-.furniture-console{position:absolute;right:14px;top:91px;width:120px;height:25px;border:1px solid rgba(201,172,237,.42);background:linear-gradient(90deg,rgba(159,122,196,.18),rgba(70,49,89,.25));box-shadow:0 14px 0 -12px rgba(201,172,237,.6)}
-.furniture-sofa{position:absolute;left:25px;bottom:42px;width:165px;height:67px;border:1px solid rgba(198,166,231,.65);border-radius:10px 10px 4px 4px;background:linear-gradient(145deg,rgba(128,91,161,.35),rgba(45,33,58,.65));box-shadow:0 20px 30px rgba(0,0,0,.25)}
-.furniture-sofa:before{content:"";position:absolute;left:-10px;right:-10px;bottom:0;height:44px;border:1px solid rgba(198,166,231,.45);border-radius:8px;background:rgba(105,76,132,.23)}
-.furniture-sofa:after{content:"";position:absolute;left:17px;bottom:-14px;width:3px;height:15px;background:#9b7bb9;box-shadow:128px 0 #9b7bb9}
-.furniture-sofa span{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(198,166,231,.45)}
-.furniture-sofa i,.furniture-sofa b{position:absolute;top:9px;bottom:9px;width:1px;background:rgba(198,166,231,.25);left:31%}
-.furniture-sofa b{left:69%}
-.furniture-table{position:absolute;right:18px;bottom:40px;width:72px;height:7px;border:1px solid rgba(198,166,231,.6);border-radius:50%;box-shadow:0 8px 0 -3px rgba(198,166,231,.35)}
-.furniture-rug{position:absolute;left:0;right:0;bottom:20px;height:1px;background:linear-gradient(90deg,transparent,rgba(198,166,231,.45),transparent)}
-.footer-wordmark .wordmark-image{width:190px}
-@media(max-width:680px){.footer-wordmark .wordmark-image{width:165px}.furniture-scene{transform:translate(-50%,-50%) scale(.88)}}
+/* Readability and portfolio layout refinement */
+body{font-size:15px}
+.hero-copy{font-size:18px}
+.hero-sub{font-size:12px}
+.about-copy{font-size:14px}
+.about-copy .lead{font-size:18px}
+.section-intro{font-size:13px}
+.brand-meta{font-size:8px}
+.brand-info h3{font-size:clamp(28px,3.15vw,42px)}
+.brand-info>p{font-size:12px;line-height:1.95}
+.tag-list span{font-size:9px}
+.arrow-link{font-size:10px}
+.brand-number{font-size:9px}
+.brand-details{font-size:11px}
+.brand-details summary{font-size:9px}
+.contact-heading>p{font-size:13px}
+.contact-form input,.contact-form textarea{font-size:12px}
+.form-note{font-size:10px}
+.footer-bottom{font-size:8px}
+
+/* Caironiture uses the supplied official brand lockup. */
+.caironiture-visual{background:radial-gradient(ellipse at 30% 50%,rgba(242,148,16,.10),transparent 44%),radial-gradient(ellipse at 78% 50%,rgba(0,128,145,.12),transparent 42%),#0b0b0e}
+.caironiture-logo{display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(88%,560px);max-height:142px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
+
+/* The fifth brand occupies both portfolio columns for a balanced final row. */
+.brand-future{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.brand-future .brand-visual{height:auto;min-height:310px}
+.brand-future .brand-info{display:flex;flex-direction:column;justify-content:center;padding:38px 42px}
+.brand-future .brand-info>p{max-width:620px;min-height:0}
+.brand-future .tag-list{margin-top:14px}
+.brand-future .brand-footer{margin-top:8px}
+
+@media(max-width:900px){
+  .brand-future .brand-info{padding:28px}
+  .brand-future .brand-visual{min-height:280px}
+  .brand-info h3{font-size:clamp(28px,4vw,38px)}
+}
+@media(max-width:680px){
+  body{font-size:14px}
+  .hero-copy{font-size:15px}
+  .hero-sub{font-size:10px}
+  .about-copy{font-size:13px}
+  .about-copy .lead{font-size:16px}
+  .section-intro{font-size:12px}
+  .brand-info>p{font-size:12px}
+  .brand-meta{font-size:7px}
+  .brand-info h3{font-size:31px}
+  .tag-list span{font-size:9px}
+  .brand-future{grid-column:auto;display:block}
+  .brand-future .brand-visual{height:230px;min-height:0}
+  .brand-future .brand-info{display:block;padding:23px 21px}
+  .caironiture-logo{width:88%;max-height:100px}
+}
