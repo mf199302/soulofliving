@@ -82,14 +82,19 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
 // Static-site contact form: opens the visitor's email client; no data is stored.
 const contactForm = document.getElementById("contact-form");
 const formNote = document.getElementById("form-note");
+
 contactForm.addEventListener("submit", event => {
   event.preventDefault();
   if (!contactForm.reportValidity()) return;
+
   const data = new FormData(contactForm);
   const subject = encodeURIComponent(`${data.get("subject")} — Soul of Living`);
   const body = encodeURIComponent(
     `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`
   );
+
   formNote.textContent = "Opening your email application…";
-  window.location.href = `mailto:${siteContent.placeholders.generalEmail}?subject=${subject}&body=${body}`;
+
+  window.location.href =
+    `mailto:info@soulofliving.com?subject=${subject}&body=${body}`;
 });
