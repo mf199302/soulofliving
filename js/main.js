@@ -7,12 +7,15 @@ const siteContent = {
     email: "husseinhatemlatinlove@gmail.com",
     location: "Narges Buildings, New Cairo, Cairo, Egypt",
     instagram: "https://www.instagram.com/latinlovecairo/",
-    facebook: "https://www.facebook.com/"
+    facebook: "https://www.facebook.com/LatinLoveCairo"
   },
   placeholders: {
     interiorDesign: "[DESIGN STUDIO]",
     propertyManagement: "[STAY COLLECTIVE]",
     generalEmail: "hello@soulofliving.com"
+  },
+  ventures: {
+    caironiture: "https://www.caironiture.com/"
   }
 };
 
@@ -43,6 +46,15 @@ nav.querySelectorAll("a").forEach(link => {
     menuToggle.setAttribute("aria-label", "Open navigation");
   });
 });
+
+
+// Fall back to the text mark if the external Facebook profile image cannot load.
+const latinLogo = document.querySelector(".latin-love-logo");
+if (latinLogo) {
+  latinLogo.addEventListener("error", () => {
+    latinLogo.closest(".latin-logo-frame")?.classList.add("logo-load-failed");
+  }, { once: true });
+}
 
 // Progressive reveal; content remains visible if IntersectionObserver is unavailable.
 const revealItems = document.querySelectorAll(".reveal");
